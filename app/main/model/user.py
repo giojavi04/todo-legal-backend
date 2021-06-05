@@ -12,12 +12,15 @@ class User(db.Model):
     __tablename__ = "user"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    uuid = db.Column(db.Text, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
-    registered_on = db.Column(db.DateTime, nullable=False)
-    admin = db.Column(db.Boolean, nullable=False, default=False)
-    public_id = db.Column(db.String(100), unique=True)
     username = db.Column(db.String(50), unique=True)
+    name = db.Column(db.String(200), nullable=False)
+    last_name = db.Column(db.String(200), nullable=False)
+    phone_number = db.Column(db.String(80), nullable=True)
+    password = db.Column(db.Text, nullable=False)
     password_hash = db.Column(db.String(100))
+    created_at = db.Column(db.DateTime, default=datetime)
 
     @property
     def password(self):

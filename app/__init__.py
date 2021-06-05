@@ -15,9 +15,9 @@ authorizations = {
 
 api = Api(
     blueprint,
-    title='FLASK RESTPLUS(RESTX) API BOILER-PLATE WITH JWT',
+    title='TODO LEGAL API',
     version='1.0',
-    description='a boilerplate for flask restplus (restx) web service',
+    description='A app to simple backend for application to Full Stack Developer in Todo Legal',
     authorizations=authorizations,
     security='apikey'
 )
