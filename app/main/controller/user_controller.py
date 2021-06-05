@@ -20,6 +20,7 @@ class UserList(Resource):
 
     @api.expect(_user, validate=True)
     @api.response(201, 'User successfully created.')
+    @api.marshal_with(_user, envelope='data')
     @api.doc('create a new user')
     def post(self) -> Tuple[Dict[str, str], int]:
         """Creates a new User """

@@ -6,7 +6,7 @@ from typing import Dict, Tuple
 
 
 def save_new_user(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
-    user = User.query.filter_by(email=data['email']).first()
+    user = User.query.filter_by(username=data['username']).first()
     if not user:
         new_user = User(
             uuid=str(uuid.uuid4()),
@@ -18,11 +18,11 @@ def save_new_user(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
             phone_number=data['phone_number'],
         )
         save_changes(new_user)
-        return generate_token(new_user)
+        return new_user
     else:
         response_object = {
             'status': 'fail',
-            'message': 'User already exists. Please Log in.',
+            'message': 'El usuario ya existe. Por favor inicia sesión.',
         }
         return response_object, 409
 
