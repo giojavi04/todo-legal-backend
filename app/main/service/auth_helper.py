@@ -71,8 +71,8 @@ class Auth:
                     'data': {
                         'user_id': user.id,
                         'email': user.email,
-                        'admin': user.admin,
-                        'registered_on': str(user.registered_on)
+                        'status': user.status,
+                        'registered_on': str(user.created_at)
                     }
                 }
                 return response_object, 200
