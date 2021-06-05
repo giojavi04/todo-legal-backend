@@ -20,7 +20,7 @@ class User(db.Model):
     phone_number = db.Column(db.String(80), nullable=True)
     password = db.Column(db.Text, nullable=False)
     password_hash = db.Column(db.String(100))
-    created_at = db.Column(db.DateTime, default=datetime)
+    created_at = db.Column(db.DateTime, default=datetime.datetime.now)
 
     @property
     def password(self):
