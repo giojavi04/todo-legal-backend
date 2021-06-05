@@ -15,6 +15,7 @@ class User(db.Model):
     uuid = db.Column(db.Text, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     username = db.Column(db.String(50), unique=True)
+    status = db.Column(db.Boolean, nullable=True, default=True)
     name = db.Column(db.String(200), nullable=False)
     last_name = db.Column(db.String(200), nullable=False)
     phone_number = db.Column(db.String(80), nullable=True)
