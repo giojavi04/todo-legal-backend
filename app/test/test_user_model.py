@@ -1,6 +1,7 @@
 import unittest
 
 import datetime
+import uuid
 
 from app.main import db
 from app.main.model.user import User
@@ -11,9 +12,14 @@ class TestUserModel(BaseTestCase):
 
     def test_encode_auth_token(self):
         user = User(
+            uuid=str(uuid.uuid4()),
             email='test@test.com',
             password='test',
-            registered_on=datetime.datetime.utcnow()
+            name='Javier',
+            last_name='Montalvo',
+            phone_number='0987634456',
+            username='1723454344',
+            created_at=datetime.datetime.utcnow()
         )
         db.session.add(user)
         db.session.commit()
@@ -22,9 +28,14 @@ class TestUserModel(BaseTestCase):
 
     def test_decode_auth_token(self):
         user = User(
+            uuid=str(uuid.uuid4()),
             email='test@test.com',
             password='test',
-            registered_on=datetime.datetime.utcnow()
+            name='Javier',
+            last_name='Montalvo',
+            phone_number='0987634456',
+            username='1723454344',
+            created_at=datetime.datetime.utcnow()
         )
         db.session.add(user)
         db.session.commit()
