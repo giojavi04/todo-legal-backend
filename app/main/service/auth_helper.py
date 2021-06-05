@@ -13,16 +13,11 @@ class Auth:
             if user and user.check_password(data.get('password')):
                 auth_token = User.encode_auth_token(user.id)
                 if auth_token:
-                    response_object = {
-                        'status': 'success',
-                        'message': 'Successfully logged in.',
-                        'Authorization': auth_token.decode()
-                    }
-                    return response_object, 200
+                    return user, 200
             else:
                 response_object = {
                     'status': 'fail',
-                    'message': 'username or password does not match.'
+                    'message': 'La información ingresada, no se encuentra en el sistema.'
                 }
                 return response_object, 401
 
