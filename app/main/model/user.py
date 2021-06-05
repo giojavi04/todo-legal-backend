@@ -12,12 +12,12 @@ class User(db.Model):
     __tablename__ = "user"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    uuid = db.Column(db.Text, nullable=False)
-    email = db.Column(db.String(255), unique=True, nullable=False)
+    uuid = db.Column(db.Text, nullable=True)
+    email = db.Column(db.String(255), nullable=True)
     username = db.Column(db.String(50), unique=True)
     status = db.Column(db.Boolean, nullable=True, default=True)
-    name = db.Column(db.String(200), nullable=False)
-    last_name = db.Column(db.String(200), nullable=False)
+    name = db.Column(db.String(200), nullable=True)
+    last_name = db.Column(db.String(200), nullable=True)
     phone_number = db.Column(db.String(80), nullable=True)
     password = db.Column(db.Text, nullable=False)
     password_hash = db.Column(db.String(100))
